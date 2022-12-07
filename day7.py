@@ -93,27 +93,16 @@ class FileSystem:
 
         return total_size
 
-    def clean(self):
+    def clean(self, option):
         dir = self.root
         self.clean_sums = []
 
         for element in dir.content.values():
             if isinstance(element, MyDir):
-                sizedir = self.dir_size(element, 1)
-                self.addto_clean(element.name, sizedir,1)
+                sizedir = self.dir_size(element, option)
+                self.addto_clean(element.name, sizedir, option)
 
-        return sum(self.clean_sums)
-
-    def clean2(self):
-        dir = self.root
-        self.clean_sums = []
-
-        print('Disk size:',self.disk_size)
-        print('Free Disk size:',self.free_space)
-
-        for element in dir.content.values():
-            if isinstance(element, MyDir):
-                sizedir = self.dir_size(element, 2)
-                self.addto_clean(element.name, sizedir, 2)
-
-        return min(self.clean_sums)
+        if option == 1:
+            return sum(self.clean_sums)
+        else:
+            return min(self.clean_sums)
