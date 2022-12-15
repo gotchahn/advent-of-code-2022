@@ -88,14 +88,6 @@ class Day12:
                 print('Right', end=' ')
                 self.enqueueIfGoodStep(dequeue.row, dequeue.column + 1, elementHeight, step)
 
-        #for r in range(self.maxRows):
-            #for c in range(self.maxCols):
-                #print(f"{self.visited[r][c]}", end = ",")
-            #print("")
-
-        #maxes = []
-        #for r in range(self.maxRows):
-            #maxes.append(max(self.visited[r]))
         return math.inf
 
     def shortest2(self):
